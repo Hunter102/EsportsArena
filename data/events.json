@@ -1,0 +1,14 @@
+[
+  {
+    "id": "e1",
+    "name": "ESEA Advanced Playoffs",
+    "game": "cs2",
+    "league_id": "l1",
+    "organizer": "ESEA",
+    "logo_url": "",
+    "description": "Playoff bracket",
+    "active": true,
+    "start_date": "2025-01-15",
+    "end_date": "2025-02-01"
+  }
+]

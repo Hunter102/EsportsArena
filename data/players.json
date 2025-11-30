@@ -1,0 +1,34 @@
+[
+  {
+    "id": "p1",
+    "name": "s1mple",
+    "real_name": "Oleksandr Kostyliev",
+    "team": "NAVI",
+    "position": "awper",
+    "salary": 10800,
+    "avatar_url": "/players/s1mple.png",
+    "stats": {
+      "kills": 27,
+      "deaths": 16,
+      "assists": 5,
+      "rating": 1.34
+    },
+    "fantasy_points": 72.5
+  },
+  {
+    "id": "p2",
+    "name": "NiKo",
+    "real_name": "Nikola Kovač",
+    "team": "G2",
+    "position": "rifler",
+    "salary": 9600,
+    "avatar_url": "/players/niko.png",
+    "stats": {
+      "kills": 23,
+      "deaths": 18,
+      "assists": 7,
+      "rating": 1.22
+    },
+    "fantasy_points": 64.9
+  }
+]

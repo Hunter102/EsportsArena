@@ -1,0 +1,14 @@
+[
+  {
+    "id": "m1",
+    "event_id": "e1",
+    "team_a": "NAVI",
+    "team_b": "G2",
+    "team_a_logo": "/teams/navi.png",
+    "team_b_logo": "/teams/g2.png",
+    "match_date": "2025-01-20T19:00:00Z",
+    "stage": "Quarterfinal",
+    "status": "upcoming",
+    "best_of": 3
+  }
+]

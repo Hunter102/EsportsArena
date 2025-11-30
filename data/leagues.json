@@ -1,0 +1,10 @@
+[
+  {
+    "id": "l1",
+    "name": "ESEA Advanced",
+    "game": "cs2",
+    "logo_url": "/leagues/esea.png",
+    "description": "North American CS2 ESEA League",
+    "active": true
+  }
+]
