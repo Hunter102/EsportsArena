@@ -61,8 +61,12 @@ export type Match = {
   team_b_logo?: string;
   match_date: string;
   stage: string;
-  status: "upcoming" | "live" | "completed";
+  status: string;
   best_of: number;
+  // Optional tournament fields
+  buy_in?: number;
+  entries?: number;
+  max_entries?: number;
 };
 
 // -----------------------------

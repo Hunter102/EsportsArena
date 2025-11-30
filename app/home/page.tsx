@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { Gamepad2 } from "lucide-react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "../components/ui/tabs";
 import EventCard from "../components/home/EventCard";
-import eventsJson from "@/data/events.json"; // <-- import JSON
+import eventsJson from "@/data/events.json";
 
 export default function Home() {
   const router = useRouter();
@@ -15,7 +15,7 @@ export default function Home() {
   const events = activeGame === "CS2" ? eventsJson : [];
 
   const handleEventClick = (eventId: string) => {
-    router.push(`/event/${eventId}`);
+    router.push(`/event-view?eventId=${eventId}`);
   };
 
   return (
