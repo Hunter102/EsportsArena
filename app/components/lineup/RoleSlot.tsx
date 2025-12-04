@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardContent } from "../ui/card";
 import { Button } from "../ui/button";
-import { Star, Plus } from "lucide-react";
+import { Star, Plus, XIcon } from "lucide-react";
 import { motion } from "framer-motion";
 
 interface Player {
@@ -18,7 +18,7 @@ interface RoleSlotProps {
   player?: Player | null;
   isCaptain?: boolean;
   onSelect: () => void;
-  onCaptainToggle: () => void;
+  onClearPlayer: () => void;
 }
 
 export default function RoleSlot({
@@ -26,22 +26,29 @@ export default function RoleSlot({
   player,
   isCaptain = false,
   onSelect,
-  onCaptainToggle,
+  onClearPlayer,
 }: RoleSlotProps) {
   return (
     <Card
       onClick={!player ? onSelect : undefined}
-      className={`bg-slate-900/50 border-slate-800 glow-border transition-all ${
-        !player ? "cursor-pointer hover:border-[#9945FF]" : ""
+      className={`bg-slate-900/50 border-slate-800 w-100 m-5 transition-all ${
+        !player ? "cursor-pointer glow-border" : ""
       }`}
     >
       <CardContent className="p-4">
         {/* Role Header */}
         <div className="flex items-center justify-between mb-3">
-          <h3 className="text-sm font-bold text-slate-400 uppercase tracking-wider">
-            {role}
+          <h3 className="text-sm font-bold text-slate-400 uppercase flex items-center justify-between tracking-wider">
+            {role} {isCaptain && <Star className="w-4 h-4 text-[#00FF88] fill-current ml-3" />}
           </h3>
-          {isCaptain && <Star className="w-4 h-4 text-[#00FF88] fill-current" />}
+          {player ? (
+           <Button
+              size="icon"
+              onClick={player ? onClearPlayer : undefined}
+              className="bg-slate-900/50 border-slate-800 hover:bg-slate-900/50 text-white cursor-pointer"
+            >
+              <XIcon />
+            </Button>) : (<></>)}
         </div>
 
         {/* Player Slot */}
@@ -76,10 +83,7 @@ export default function RoleSlot({
             </div>
 
             {/* Salary & Actions */}
-            <div className="flex flex-col items-end gap-1">
-              <p className="text-[#00FF88] font-bold text-sm">
-                ${(player.salary * (isCaptain ? 1.5 : 1)).toLocaleString()}
-              </p>
+            <div className="flex flex-row items-end gap-1">
               <div className="flex gap-1">
                 <Button
                   variant="ghost"
@@ -88,24 +92,14 @@ export default function RoleSlot({
                     e.stopPropagation();
                     onSelect();
                   }}
-                  className="h-6 px-2 text-xs hover:bg-slate-800"
+                  className="h-6 px-2 text-xs text-slate-400 hover:bg-slate-800"
                 >
                   Change
                 </Button>
-                {!isCaptain && (
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      onCaptainToggle();
-                    }}
-                    className="h-6 px-2 hover:bg-slate-800"
-                  >
-                    <Star className="w-3 h-3 text-white" />
-                  </Button>
-                )}
               </div>
+               <p className="text-[#00FF88] font-bold text-sm">
+                ${(player.salary * (isCaptain ? 1.5 : 1)).toLocaleString()}
+              </p>
             </div>
           </motion.div>
         ) : (

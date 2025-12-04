@@ -43,8 +43,7 @@ export default function PlayerSelection({
     .filter(p => !selectedPlayerIds.includes(p.id))
     .filter(
       p =>
-        p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        p.team.toLowerCase().includes(searchTerm.toLowerCase())
+        p.name.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .sort((a, b) => b.salary - a.salary);
 
@@ -63,7 +62,7 @@ export default function PlayerSelection({
         <div className="relative mb-4">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
           <Input
-            placeholder="Search players..."
+            placeholder="Search player names..."
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
             className="pl-10 bg-slate-800/50 border-slate-700 text-white"
@@ -119,8 +118,8 @@ export default function PlayerSelection({
                         <Badge
                           className={
                             canAfford
-                              ? "bg-[#9945FF]/20 text-[#9945FF] border-[#9945FF]/30"
-                              : "bg-red-500/20 text-red-400 border-red-500/30"
+                              ? "text-[#00FF88]"
+                              : "text-red-400 border-red-500/30"
                           }
                         >
                           ${player.salary.toLocaleString()}

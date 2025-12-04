@@ -2,15 +2,19 @@
   {
     "id": "ln1",
     "match_id": "m1",
-    "lineup_name": "High Risk High Reward",
+    "name": "High Risk High Reward",
     "players": [
       { "player_id": "p1", "role": "awper", "is_captain": true },
-      { "player_id": "p2", "role": "rifler" }
+      { "player_id": "p2", "role": "rifler" },
+      { "player_id": "p3", "role": "lurk" },
+      { "player_id": "p4", "role": "lurk" },
+      { "player_id": "p5", "role": "coach" }
     ],
-    "total_salary": 20400,
+    "total_salary": 49400,
     "captain_id": "p1",
     "entry_fee": 10,
     "total_points": 0,
-    "status": "active"
+    "status": "active",
+    "created_by": "u1"
   }
 ]

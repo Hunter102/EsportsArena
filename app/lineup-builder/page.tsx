@@ -79,14 +79,19 @@ export default function LineupBuilder() {
     }
   };
 
-  const handleCaptainToggle = (playerId: string) => {
-    setError(null);
-    if (captainId === playerId) {
+  const handleClearPlayer = (slot: string) => {
+    setSelectedPlayers(prev => {
+      const updated = { ...prev };
+      updated[slot] = "";
+      return updated;
+    });
+
+    // If the cleared player was captain, unset captain
+    if (slot === "Captain") {
       setCaptainId(null);
-    } else {
-      setCaptainId(playerId);
     }
   };
+
 
   const handleSaveLineup = () => {
     if (!isLineupComplete) {
@@ -108,7 +113,7 @@ export default function LineupBuilder() {
               variant="outline"
               size="icon"
               onClick={() => router.back()}
-              className="bg-slate-900/50 border-slate-800 hover:bg-slate-800 text-white"
+              className="bg-slate-900/50 border-slate-800 hover:bg-slate-800 text-white cursor-pointer"
             >
               <ArrowLeft className="w-5 h-5" />
             </Button>
@@ -132,14 +137,14 @@ export default function LineupBuilder() {
           </Alert>
         )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <RoleSlot
             key="Captain"
             role="Captain"
             player={selectedPlayers["Captain"]}
             isCaptain={true}
             onSelect={() => setSelectingRole("Captain")}
-            onCaptainToggle={() => handleCaptainToggle(selectedPlayers["Captain"]?.id)}
+            onClearPlayer={() => handleClearPlayer("Captain")}
           />
           {roles.map(role => (
             <RoleSlot
@@ -148,7 +153,7 @@ export default function LineupBuilder() {
               player={selectedPlayers[role]}
               isCaptain={false}
               onSelect={() => setSelectingRole(role)}
-              onCaptainToggle={() => handleCaptainToggle(selectedPlayers[role]?.id)}
+              onClearPlayer={() => handleClearPlayer(role)}
             />
           ))}
         </div>

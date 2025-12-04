@@ -41,6 +41,25 @@ const navigationItems = [
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const currency = "USD"
+
+  const handleDebug = async () => {
+    const params = {
+      event_id: 7148,
+      event_name: "PGL CS2 Major Copenhagen2024"
+    };
+
+    const res = await fetch("/api/event", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(params)  // ⬅️ FIX HERE (remove {params})
+    });
+
+    const json = await res.json();
+    console.log(json);
+  };
 
   return (
     <SidebarProvider>
@@ -70,7 +89,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         `}</style>
 
         {/* Sidebar */}
-        <Sidebar className="border-r border-slate-800 bg-slate-950/50 backdrop-blur-xl">
+        <Sidebar className="border-r border-slate-800 bg-slate-950/50 backdrop-blur-xl w-75">
           
           <SidebarHeader className="border-b border-slate-800 p-6">
             <div className="flex items-center gap-3">
@@ -78,10 +97,11 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                 <Trophy className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h2 className="font-bold text-black text-lg">Esports Arena</h2>
+                <h2 className="font-bold text-black text-lg">Esports Arena [{currency}]</h2>
               </div>
             </div>
           </SidebarHeader>
+          <button onClick={handleDebug}>DEBUG</button>
 
           <SidebarContent className="p-2">
             

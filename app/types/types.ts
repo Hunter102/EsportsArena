@@ -63,10 +63,9 @@ export type Match = {
   stage: string;
   status: string;
   best_of: number;
-  // Optional tournament fields
-  buy_in?: number;
-  entries?: number;
-  max_entries?: number;
+  buy_in: number;
+  entries: number;
+  max_entries: number;
 };
 
 // -----------------------------
@@ -81,11 +80,23 @@ export type LineupPlayerEntry = {
 export type Lineup = {
   id: string;
   match_id: string;
-  lineup_name: string;
+  name: string;
   players: LineupPlayerEntry[];
   total_salary: number;
   captain_id?: string;
   entry_fee: number;
   total_points: number;
-  status: "active" | "completed" | "cancelled";
+  status: string;
+  created_by: string;
+  created_date?: string;
+};
+
+// -----------------------------
+// User
+// -----------------------------
+export type User = {
+  id: string;
+  name: string;
+  email: string;
+  funds: number;
 };

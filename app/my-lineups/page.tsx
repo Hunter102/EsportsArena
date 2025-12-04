@@ -25,17 +25,17 @@ export default function MyLineups() {
 
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 glow-border">
+          <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
             <p className="text-slate-400 text-sm mb-2">Total Lineups</p>
             <p className="text-3xl font-bold text-white">{lineups.length}</p>
           </div>
-          <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 glow-border">
+          <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
             <p className="text-slate-400 text-sm mb-2">Active</p>
             <p className="text-3xl font-bold text-[#00FF88]">
               {lineups.filter((l) => l.status === "active").length}
             </p>
           </div>
-          <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6 glow-border">
+          <div className="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
             <p className="text-slate-400 text-sm mb-2">Completed</p>
             <p className="text-3xl font-bold text-[#9945FF]">
               {lineups.filter((l) => l.status === "completed").length}
@@ -64,7 +64,7 @@ export default function MyLineups() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {lineups.map((lineup) => (
-              <LineupCard key={lineup.id} lineup={lineup} />
+              <LineupCard key={lineup.id} lineup={lineup} allMatchLineups={[lineup]} />
             ))}
           </div>
         )}

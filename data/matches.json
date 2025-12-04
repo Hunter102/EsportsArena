@@ -9,6 +9,24 @@
     "match_date": "2025-01-20T19:00:00Z",
     "stage": "Quarterfinal",
     "status": "upcoming",
-    "best_of": 3
+    "best_of": 3,
+    "buy_in": 5,
+    "entries": 540,
+    "max_entries": 1000
+  },
+  {
+    "id": "m2",
+    "event_id": "e1",
+    "team_a": "FAZE",
+    "team_b": "M80",
+    "team_a_logo": "/teams/FAZE.png",
+    "team_b_logo": "/teams/M80.png",
+    "match_date": "2025-01-21T19:00:00Z",
+    "stage": "Semifinal",
+    "status": "upcoming",
+    "best_of": 5,
+    "buy_in": 10,
+    "entries": 960,
+    "max_entries": 1500
   }
 ]

@@ -60,7 +60,7 @@ export default function EventView() {
             variant="outline"
             size="icon"
             onClick={() => router.push("/")}
-            className="bg-slate-900/50 border-slate-800 text-white"
+            className="bg-slate-900/50 border-slate-800 text-white cursor-pointer"
           >
             <ArrowLeft className="w-5 h-5" />
           </Button>
@@ -88,6 +88,7 @@ export default function EventView() {
                     text-white
                     data-[state=active]:bg-white
                     data-[state=active]:text-black
+                    cursor-pointer
                 "
                 >
                 <Calendar className="w-4 h-4" />
@@ -100,6 +101,7 @@ export default function EventView() {
                     text-white
                     data-[state=active]:bg-white
                     data-[state=active]:text-black
+                    cursor-pointer
                 "
                 >
                 <Trophy className="w-4 h-4" />
@@ -112,6 +114,7 @@ export default function EventView() {
                     text-white
                     data-[state=active]:bg-white
                     data-[state=active]:text-black
+                    cursor-pointer
                 "
                 >
                 <Gamepad2 className="w-4 h-4" />
